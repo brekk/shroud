@@ -1,0 +1,26 @@
+/* ★★★ shroud@0.0.1 ★★★
+ * THIS FILE AUTOMATICALLY GENERATED FROM SOURCE: shroud.clowncar
+ */
+
+import Party from "PartyBus"
+
+
+
+export tags = {
+  shroud: Party.tag("shroud"),
+  external: Party.tagWithScope("shroud", ["external"]),
+  run: Party.tagWithScope("shroud", ["run"]),
+  which: Party.tagWithScope("shroud", ["which"]),
+}
+export env = {
+  shroud: Party.env(tags.shroud),
+  external: Party.env(tags.external),
+  run: Party.env(tags.run),
+  which: Party.env(tags.which),
+}
+export tapped = {
+  shroud: Party.tap(env.shroud),
+  external: Party.tap(env.external),
+  run: Party.tap(env.run),
+  which: Party.tap(env.which),
+}

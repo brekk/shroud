@@ -1,0 +1,31 @@
+{
+  "lockfileVersion": 1,
+  "packages": {
+    "https://github.com/brekk/dye/archive/refs/tags/v0.0.10.zip": {
+      "buildHash": "fbed1ef52bafc05de424c372d4cb244a",
+      "dependencies": [
+        "https://github.com/brekk/study/archive/refs/tags/v0.0.1.zip"
+      ],
+      "name": "dye",
+      "version": "0.0.10",
+      "versionHash": "4d3d03bfb040ab3e2b209e3c62ed614c"
+    },
+    "https://github.com/brekk/party-bus/archive/refs/tags/v0.0.8.zip": {
+      "buildHash": "ad6a150dbb2bb6f34cd39215b973d98b",
+      "dependencies": [
+        "https://github.com/brekk/dye/archive/refs/tags/v0.0.10.zip",
+        "https://github.com/brekk/study/archive/refs/tags/v0.0.3.zip"
+      ],
+      "name": "PartyBus",
+      "version": "0.0.8",
+      "versionHash": "03afcd24d3b7852bdef203bc34360409"
+    },
+    "https://github.com/brekk/study/archive/refs/tags/v0.0.6.zip": {
+      "buildHash": "ea22d1b4088f66d9160d10e6d0079eb7",
+      "dependencies": [],
+      "name": "study",
+      "version": "0.0.6",
+      "versionHash": "cf12946e6e3b4847d54e3b71a38c6145"
+    }
+  }
+}

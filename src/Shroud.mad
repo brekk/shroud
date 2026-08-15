@@ -1,0 +1,60 @@
+import type { CommandResult } from "Process"
+import type { Wish } from "Wish"
+
+import Fn from "Function"
+import IO from "IO"
+import { DEFAULT_COMMAND_OPTIONS, exec } from "Process"
+import { join } from "String"
+import Wish from "Wish"
+
+import Log from "@/Log"
+
+
+
+export alias CommandWish = Wish CommandResult CommandResult
+execute :: String -> List String -> CommandWish
+export execute = (cmd, args) => {
+  summary = `${IO.green(cmd)} ${IO.yellow(join(" ", args))}`
+  return pipe(
+    Log.env.run(summary),
+    exec($, args, DEFAULT_COMMAND_OPTIONS),
+  )(cmd)
+}
+run = execute
+export which = execute("which")
+// of which do you speak?
+// speak their code
+export exists = pipe(
+  of,
+  which,
+  map(
+    pipe(
+      .exitCode,
+      Fn.equals(0),
+    ),
+  ),
+  Wish.chainRej(
+    pipe(
+      .exitCode,
+      Fn.equals(0),
+      Wish.good,
+    ),
+  ),
+)
+export defaultBrace = (cmd, _) => {
+  failstring = "Command '" ++ cmd ++ "' does not exist"
+  return { exitCode: 1, stderr: failstring, stdout: failstring }
+}
+// it's like run, but like, slower and safer and better for your knees
+walkWithBrace :: (String -> List String -> CommandResult) -> String -> List String -> CommandWish
+export walkWithBrace = (processFailCase, cmd, args) => pipe(
+  exists,
+  chain(
+    (valid) => if (valid) {
+      run(cmd, args)
+    } else {
+      Wish.bad(processFailCase(cmd, args))
+    },
+  ),
+)(cmd)
+export walk = walkWithBrace(defaultBrace)

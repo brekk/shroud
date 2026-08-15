@@ -1,0 +1,11 @@
+import IO from "IO"
+
+import Shroud from "@/Shroud"
+
+
+
+main = () => {
+  pipe(
+    IO.pTrace("Main file for:"),
+  )("shroud")
+}
