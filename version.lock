@@ -1,0 +1,42 @@
+{
+  "buildHash": "993cbed728c585d1cdb14aadd69a5238",
+  "jsApi": {
+    "apiInstances": [],
+    "apiAliases": {
+      "CommandWish": "(Wish CommandResult CommandResult)"
+    },
+    "apiInterfaces": {},
+    "apiNames": {
+      "walk": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "which": "List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "walkWithBrace": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "defaultBrace": "Number a => String -> b -> { exitCode :: a, stderr :: String, stdout :: String }",
+      "exists": "String -> Wish a Boolean",
+      "src/Log.mad#tags": "{ external :: Tag, run :: Tag, shroud :: Tag, which :: Tag }",
+      "src/Log.mad#env": "(Show a, Show b, Show c, Show d) => { external :: String -> c -> c, run :: String -> b -> b, shroud :: String -> d -> d, which :: String -> a -> a }",
+      "src/Log.mad#tapped": "(Show a, Show b, Show c, Show d) => { external :: String -> (e -> c) -> e -> e, run :: String -> (f -> b) -> f -> f, shroud :: String -> (g -> d) -> g -> g, which :: String -> (h -> a) -> h -> h }",
+      "execute": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }"
+    },
+    "apiTypes": {}
+  },
+  "llvmApi": {
+    "apiInstances": [],
+    "apiAliases": {
+      "CommandWish": "(Wish CommandResult CommandResult)"
+    },
+    "apiInterfaces": {},
+    "apiNames": {
+      "walk": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "which": "List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "walkWithBrace": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "defaultBrace": "Number a => String -> b -> { exitCode :: a, stderr :: String, stdout :: String }",
+      "exists": "String -> Wish a Boolean",
+      "src/Log.mad#tags": "{ external :: Tag, run :: Tag, shroud :: Tag, which :: Tag }",
+      "src/Log.mad#env": "(Show a, Show b, Show c, Show d) => { external :: String -> c -> c, run :: String -> b -> b, shroud :: String -> d -> d, which :: String -> a -> a }",
+      "src/Log.mad#tapped": "(Show a, Show b, Show c, Show d) => { external :: String -> (e -> c) -> e -> e, run :: String -> (f -> b) -> f -> f, shroud :: String -> (g -> d) -> g -> g, which :: String -> (h -> a) -> h -> h }",
+      "execute": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }"
+    },
+    "apiTypes": {}
+  },
+  "versionHash": "25e64aa754c310d45c1e084d574c1bb0"
+}
