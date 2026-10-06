@@ -1,11 +1,25 @@
+import File from "File"
+import Fn from "Function"
 import IO from "IO"
+import Wish from "Wish"
 
 import Shroud from "@/Shroud"
 
 
 
 main = () => {
+  cat = Shroud.cover("cat")
   pipe(
-    IO.pTrace("Main file for:"),
-  )("shroud")
+    cat,
+    map(.stdout),
+    Wish.mapRej(.stderr),
+    Wish.fulfill(
+      pipe(
+        IO.put,
+      ),
+      pipe(
+        IO.put,
+      ),
+    ),
+  )(["./madlib.json"])
 }
