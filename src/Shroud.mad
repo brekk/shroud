@@ -15,13 +15,14 @@ export alias CommandWish = Wish CommandResult CommandResult
 executeWithOptions :: CommandOptions -> String -> List String -> CommandWish
 export executeWithOptions = (opts, cmd, args) => {
   summary = `${IO.green(cmd)} ${IO.yellow(join(" ", args))}`
+  Log.env.run("TEST", #[summary, true])
   return pipe(
     Log.env.run(summary),
     exec($, args, opts),
   )(cmd)
 }
 execute :: String -> List String -> CommandWish
-execute = executeWithOptions(DEFAULT_COMMAND_OPTIONS)
+export execute = executeWithOptions(DEFAULT_COMMAND_OPTIONS)
 export run = execute
 export which = execute("which")
 // of which do you speak?
