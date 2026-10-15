@@ -1,5 +1,5 @@
 {
-  "buildHash": "a193b379ee0dd6cb9f59ce53a4695a24",
+  "buildHash": "cc62e2bd17f9fcc118b9c46f5f46cb54",
   "jsApi": {
     "apiInstances": [],
     "apiAliases": {
@@ -8,16 +8,21 @@
     "apiInterfaces": {},
     "apiNames": {
       "which": "List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "src/Log.mad#jsonWhich": "Json a => String -> a -> a",
       "executeWithOptions": "{ cwd :: String, env :: Dictionary String String } -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "cover": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "kill": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "exists": "String -> Wish a Boolean",
       "run": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "src/Log.mad#tags": "{ external :: Tag, run :: Tag, shroud :: Tag, which :: Tag }",
-      "src/Log.mad#env": "{ external :: String -> String -> String, run :: String -> String -> String, shroud :: String -> String -> String, which :: String -> String -> String }",
+      "src/Log.mad#env": "(Show a, Show b, Show c, Show d) => { external :: String -> c -> c, run :: String -> b -> b, shroud :: String -> d -> d, which :: String -> a -> a }",
+      "src/Log.mad#jsonExternal": "Json a => String -> a -> a",
+      "src/Log.mad#jsonShroud": "Json a => String -> a -> a",
       "killSoftly": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "src/Log.mad#jsonRun": "Json a => String -> a -> a",
       "littleDeath": "Number a => String -> b -> { exitCode :: a, stderr :: String, stdout :: String }",
-      "src/Log.mad#tapped": "{ external :: String -> (a -> String) -> a -> a, run :: String -> (b -> String) -> b -> b, shroud :: String -> (c -> String) -> c -> c, which :: String -> (d -> String) -> d -> d }",
+      "src/Log.mad#tapped": "(Show a, Show b, Show c, Show d) => { external :: String -> (e -> c) -> e -> e, run :: String -> (f -> b) -> f -> f, shroud :: String -> (g -> d) -> g -> g, which :: String -> (h -> a) -> h -> h }",
+      "execute": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "coverWith": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }"
     },
     "apiTypes": {}
@@ -30,19 +35,24 @@
     "apiInterfaces": {},
     "apiNames": {
       "which": "List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "src/Log.mad#jsonWhich": "Json a => String -> a -> a",
       "executeWithOptions": "{ cwd :: String, env :: Dictionary String String } -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "cover": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "kill": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "exists": "String -> Wish a Boolean",
       "run": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "src/Log.mad#tags": "{ external :: Tag, run :: Tag, shroud :: Tag, which :: Tag }",
-      "src/Log.mad#env": "{ external :: String -> String -> String, run :: String -> String -> String, shroud :: String -> String -> String, which :: String -> String -> String }",
+      "src/Log.mad#env": "(Show a, Show b, Show c, Show d) => { external :: String -> c -> c, run :: String -> b -> b, shroud :: String -> d -> d, which :: String -> a -> a }",
+      "src/Log.mad#jsonExternal": "Json a => String -> a -> a",
+      "src/Log.mad#jsonShroud": "Json a => String -> a -> a",
       "killSoftly": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
+      "src/Log.mad#jsonRun": "Json a => String -> a -> a",
       "littleDeath": "Number a => String -> b -> { exitCode :: a, stderr :: String, stdout :: String }",
-      "src/Log.mad#tapped": "{ external :: String -> (a -> String) -> a -> a, run :: String -> (b -> String) -> b -> b, shroud :: String -> (c -> String) -> c -> c, which :: String -> (d -> String) -> d -> d }",
+      "src/Log.mad#tapped": "(Show a, Show b, Show c, Show d) => { external :: String -> (e -> c) -> e -> e, run :: String -> (f -> b) -> f -> f, shroud :: String -> (g -> d) -> g -> g, which :: String -> (h -> a) -> h -> h }",
+      "execute": "String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }",
       "coverWith": "(String -> List String -> { exitCode :: Integer, stderr :: String, stdout :: String }) -> String -> List String -> Wish { exitCode :: Integer, stderr :: String, stdout :: String } { exitCode :: Integer, stderr :: String, stdout :: String }"
     },
     "apiTypes": {}
   },
-  "versionHash": "47cd76e43f74bbc2e1baaf194d07e1fa"
+  "versionHash": "d233662f9c26d1a06118c93ef2fd1de9"
 }
