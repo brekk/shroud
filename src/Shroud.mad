@@ -1,9 +1,8 @@
-import type { CommandOptions, CommandResult } from "Process"
 import type { Wish } from "Wish"
 
 import Fn from "Function"
 import IO from "IO"
-import { DEFAULT_COMMAND_OPTIONS, exec } from "Process"
+import Process from "Process"
 import { join } from "String"
 import Wish from "Wish"
 
@@ -11,23 +10,21 @@ import Log from "@/Log"
 
 
 
-export alias CommandWish = Wish CommandResult CommandResult
-executeWithOptions :: CommandOptions -> String -> List String -> CommandWish
+export alias CommandWish = Wish Process.CommandResult Process.CommandResult
+executeWithOptions :: Process.CommandOptions -> String -> List String -> CommandWish
 export executeWithOptions = (opts, cmd, args) => {
   summary = `${IO.green(cmd)} ${IO.yellow(join(" ", args))}`
-  Log.env.run("TEST", #[summary, true])
   return pipe(
     Log.env.run(summary),
-    exec($, args, opts),
+    Process.exec($, args, opts),
   )(cmd)
 }
 execute :: String -> List String -> CommandWish
-export execute = executeWithOptions(DEFAULT_COMMAND_OPTIONS)
+export execute = executeWithOptions(Process.DEFAULT_COMMAND_OPTIONS)
 export run = execute
-export which = execute("which")
 // of which do you speak?
-// speak their code
-export exists = pipe(
+export which = execute("which")
+export exists = (exe) => pipe(
   of,
   which,
   map(
@@ -43,23 +40,28 @@ export exists = pipe(
       Wish.good,
     ),
   ),
-)
+  bimap(Log.env.shroud(exe ++ " doesn't exist"), Log.env.shroud(exe ++ " exists")),
+)(exe)
 export littleDeath = (cmd, _) => {
   failstring = "Command '" ++ cmd ++ "' does not exist"
   return { exitCode: 1, stderr: failstring, stdout: failstring }
 }
 // it's like execute, but like, slower and safer and better for your knees
-killSoftly :: (String -> List String -> CommandResult) -> String -> List String -> CommandWish
-export killSoftly = (processFailCase, cmd, args) => pipe(
+killSoftlyWithOptions :: Process.CommandOptions
+  -> (String -> List String -> Process.CommandResult)
+  -> String
+  -> List String
+  -> CommandWish
+export killSoftlyWithOptions = (opts, processFailCase, cmd, args) => pipe(
   exists,
   chain(
     (valid) => if (valid) {
-      run(cmd, args)
+      executeWithOptions(opts, cmd, args)
     } else {
       Wish.bad(processFailCase(cmd, args))
     },
   ),
 )(cmd)
-export coverWith = killSoftly
-export kill = killSoftly(littleDeath)
-export cover = kill
+export coverWith = killSoftlyWithOptions
+export walk = killSoftlyWithOptions(Process.DEFAULT_COMMAND_OPTIONS, littleDeath)
+export cover = walk
