@@ -3,7 +3,7 @@
 Wrap the spawn of the executed executable
 
 [![Madlib Project Badge](https://img.shields.io/badge/madlib-purple?logo=github&logoSize=auto)](//github.com/madlib-lang/madlib) <!-- $MADLIB.projectBadge -->
-[![shroud v0.0.2](https://img.shields.io/badge/v0.0.2-purple?label=version)](//github.com/brekk/shroud) <!-- $MADLIB.json.version -->
+[![shroud v3.0.0](https://img.shields.io/badge/v3.0.0-purple?label=version)](//github.com/brekk/shroud) <!-- $MADLIB.json.version -->
 
 ---
 
